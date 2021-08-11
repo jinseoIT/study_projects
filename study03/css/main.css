@@ -1,0 +1,26 @@
+/* COMMON */
+
+header { 
+  background-color:#dcdcdc;
+  color: black;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+header h3 {
+  font-size: 13px;
+}
+
+header button {
+  background-color:#0A6EFF;
+  color: #fff;
+  border-radius: 5px;
+  border-color: #0064FF;
+}
+
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
