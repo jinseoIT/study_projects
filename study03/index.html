@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/main.css">
@@ -15,40 +15,65 @@
 </head>
 <body>
   <header>
-    <h2>나 홀로 링크 메모장!</h2>
-    <h3>중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</h3>
-    <button>포스팅 박스 열기</button>
+    <div class="header-box">
+      <div class="header-contents">
+        <h2>나 홀로 링크 메모장!</h2>
+        <h3>중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</h3>
+        <hr>
+        <button>포스팅 박스 열기</button>
+    </div>
+    </div>
   </header>
   
   <section>
-    <div class="card">
-      <img src="" alt="">
-      <p class="title">제목입니다.</p>
-      <textarea class="contents">아무말 아무말</textarea>
+    <div class="card-list">
+      <div class="card">
+        <img src="" alt="">
+        <p class="title">제목입니다.</p>
+        <textarea textarea class="contents">아무말 아무말</textarea>
+      </div>
+
+      <div class="card">
+        <img src="" alt="">
+        <p class="title">제목입니다.</p>
+        <textarea textarea class="contents">아무말 아무말</textarea>
+      </div>
+
+      <div class="card">
+        <img src="" alt="">
+        <p class="title">제목입니다.</p>
+        <textarea textarea class="contents">아무말 아무말</textarea>
+      </div>
+
+      
     </div>
   </section>
   
   <script>
-    window.onload = function (){
+    window.onload = () => {
       init();
     }
     
-    const init = function(){
+    const init = () => {
       getMovieApi();
     }
 
     const getMovieApi = function(){
       const xhr = new XMLHttpRequest();
-      xhr.open('GET', encodeURI('http://spartacodingclub.shop/post'), true);
-      xhr.onreadystatechange = function() {
-	    if(xhr.readyState == 4 && xhr.status == 200)
-        {
-            //alert(xhr.responseText);
-        }
-      }
+      xhr.open('GET', 'http://spartacodingclub.shop/post', true);
       xhr.send();
-      console.log(xhr);
+      xhr.onload= () => {
+        //통신 성공
+        if (xhr.status == 200) {
+                console.log(JSON.parse(xhr.responseText));
+                console.log("통신 성공");
+            } else {
+                //통신 실패
+                console.log("통신 실패");
+            }
+      }
     }
+      
   </script>
 </body>
 </html>
