@@ -10,7 +10,7 @@
   <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
-  
+
   <title>Movie</title>
 </head>
 <body>
@@ -28,5 +28,27 @@
     </div>
   </section>
   
+  <script>
+    window.onload = function (){
+      init();
+    }
+    
+    const init = function(){
+      getMovieApi();
+    }
+
+    const getMovieApi = function(){
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', encodeURI('http://spartacodingclub.shop/post'), true);
+      xhr.onreadystatechange = function() {
+	    if(xhr.readyState == 4 && xhr.status == 200)
+        {
+            //alert(xhr.responseText);
+        }
+      }
+      xhr.send();
+      console.log(xhr);
+    }
+  </script>
 </body>
 </html>
