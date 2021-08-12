@@ -54,6 +54,8 @@ button {
   margin: 10px;
   box-sizing : border-box;
   width : 250px;
+  max-height : 400px;
+  overflow: hidden;
   border : 1px black solid;
 }
 

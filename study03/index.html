@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
 
   <title>Movie</title>
 </head>
+
 <body>
   <header>
     <div class="header-box">
@@ -21,71 +23,55 @@
         <h3>중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</h3>
         <hr>
         <button>포스팅 박스 열기</button>
-    </div>
+      </div>
     </div>
   </header>
-  
+
   <section>
-    <ul class="card-list">
-
-      <li class="card">
-        <img src="https://img.huffingtonpost.com/asset/5d80b5123b0000039fd54536.jpeg?ops=scalefit_630_noupscale" alt="">
-        <p class="title">여기 기사 제목이 들어갑니다. </p>
-        <p class="contents">아무말 아무말 </p>
-      </li>
-
-      <li class="card">
-        <img src="https://img.huffingtonpost.com/asset/5d80b5123b0000039fd54536.jpeg?ops=scalefit_630_noupscale" alt="">
-        <p class="title">제목입니다.</p>
-        <p class="contents">아무말 아무말 </p>
-      </li>
-
-      <li class="card">
-        <img src="https://img.huffingtonpost.com/asset/5d80b5123b0000039fd54536.jpeg?ops=scalefit_630_noupscale" alt="">
-        <p class="title">제목입니다.</p>
-        <p class="contents">아무말 아무말 </p>
-      </li>
-      <li class="card">
-        <img src="https://img.huffingtonpost.com/asset/5d80b5123b0000039fd54536.jpeg?ops=scalefit_630_noupscale" alt="">
-        <p class="title">제목입니다.</p>
-        <p class="contents">아무말 아무말 </p>
-      </li>
-
-      <li class="card">
-        <img src="https://img.huffingtonpost.com/asset/5d80b5123b0000039fd54536.jpeg?ops=scalefit_630_noupscale" alt="">
-        <p class="title">제목입니다.</p>
-        <p class="contents">아무말 아무말 </p>
-      </li>
-
-      
-    </ul>
+    <ul class="card-list" id="card-list"></ul>
   </section>
-  
+
   <script>
     window.onload = () => {
       init();
     }
-    
+
     const init = () => {
       getMovieApi();
     }
 
-    const getMovieApi = function(){
+    const getMovieApi = function () {
       const xhr = new XMLHttpRequest();
       xhr.open('GET', 'http://spartacodingclub.shop/post', true);
       xhr.send();
-      xhr.onload= () => {
+      xhr.onload = () => {
         //통신 성공
         if (xhr.status == 200) {
-                console.log(JSON.parse(xhr.responseText));
-                console.log("통신 성공");
-            } else {
-                //통신 실패
-                console.log("통신 실패");
-            }
+          const contentsList = JSON.parse(xhr.responseText);
+          let rows = contentsList['articles'];
+          let temp_html = '';
+          for (let i = 0; i < rows.length; i++) {
+            let comment = rows[i]['comment']
+            let desc = rows[i]['desc']
+            let image = rows[i]['image']
+            let title = rows[i]['title']
+            let url = rows[i]['url']
+
+            temp_html += '<li class="card">';
+            temp_html += '<img src="'+image+'" alt="'+title+'">';
+            temp_html += '<p class="title">'+title+'</p>';
+            temp_html += '<p class="contents">'+comment+'</p>';
+            temp_html += '</li>';
+          }
+          console.log(rows);
+          document.getElementById('card-list').innerHTML = temp_html;
+        } else {
+          //통신 실패
+          console.log("통신 실패");
+        }
       }
     }
-      
   </script>
 </body>
+
 </html>
