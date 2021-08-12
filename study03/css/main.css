@@ -48,12 +48,18 @@ button {
   flex-wrap: wrap;
   justify-content: center;
   max-width: 60vw;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .card-list .card{
   background-color: orange;
-  
+  margin: 20px;
+  box-sizing : border-box;
+}
+
+.card-list .card img {
+  height: 300px;
+  width : 300x;
 }
 
 
