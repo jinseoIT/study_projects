@@ -59,6 +59,11 @@ button {
   border : 1px black solid;
 }
 
+
+/* .card-list .card::-webkit-scrollbar{
+  display: none;
+} */
+
 .card-list .card img {
   height: 300px;
   width : 100%;
