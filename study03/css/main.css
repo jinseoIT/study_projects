@@ -5,7 +5,7 @@ header {
 }
 
 header .header-box{
-  width: 60vw;
+  width: 60%;
   margin : 0 auto;
   background-color:rgb(232, 236, 239);
   height : 250px;
@@ -13,7 +13,7 @@ header .header-box{
 }
 
 header .header-box .header-contents {
-  width: 55vw;
+  width: 55%;
   position: absolute;
   top: 30px;
   padding : 0 30px;
@@ -43,24 +43,35 @@ button {
 
 /* CARD */
 .card-list {
-  background-color: gray;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 60vw;
-  margin: 20px auto;
+  max-width: 60%;
+  margin: 0 auto;
 }
 
 .card-list .card{
-  background-color: orange;
-  margin: 20px;
+  margin: 10px;
   box-sizing : border-box;
+  width : 250px;
+  max-height : 400px;
+  overflow: hidden;
+  border : 1px black solid;
 }
 
 .card-list .card img {
   height: 300px;
-  width : 300x;
+  width : 100%;
 }
+
+.card-list .card .title {
+  color: rgba(59, 59, 245, 0.993);
+}
+
+.card-list .card .contents {
+  margin: 5px 0;
+}
+
 
 
 
